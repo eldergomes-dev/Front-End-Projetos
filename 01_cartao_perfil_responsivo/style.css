@@ -1,0 +1,163 @@
+ /* ==========================================================================
+   1. VARIÁVEIS GLOBAIS & TEMAS (Dark/Light)
+   ========================================================================== */
+
+:root {
+    /* Tema Dark (Padrão) */
+    --background-color: #0f172a;
+    --card-background: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --accent-hover: #0284c7;
+    --border-color: #334155;
+    
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --border-radius: 12px;
+}
+
+[data-theme="light"] {
+    /* Tema Light */
+    --background-color: #f1f5f9;
+    --card-background: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --accent-color: #0284c7;
+    --accent-hover: #0369a1;
+    --border-color: #e2e8f0;
+}
+
+/* ==========================================================================
+   2. RESET CSS & ESTRUTURA BASE
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==========================================================================
+   3. COMPONENTE: CARTÃO DE PERFIL
+   ========================================================================== */
+
+.profile-card {
+    position: relative;
+    background-color: var(--card-background);
+    width: 100%;
+    max-width: 380px;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Botão de Alternância de Tema */
+.theme-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.theme-button:hover {
+    transform: scale(1.15); /* Aumenta o botão*/
+   
+}
+/* Cabeçalho do Perfil */
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.profile-title {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Bio */
+.profile-bio p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+/* Links */
+.profile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.link-button {
+    display: block;
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;  
+}
+
+.link-button:hover {
+    background-color: var(--accent-hover);
+    color: #ffffff;
+    border-color: var(--accent-hover);
+}
+
+/* Rodapé do Cartão */
+.profile-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   4. RESPONSIVIDADE
+   ========================================================================== */
+   @media (max-width: 400px) {
+    .profile-card {
+        padding: 1.5rem;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+}
